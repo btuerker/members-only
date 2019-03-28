@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
+      cookies.permanent[:remember_token] = @user.remember_token
       flash[:success] = "Successfully logged in"
       redirect_to '/'
     else
