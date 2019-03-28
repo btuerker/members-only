@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include ApplicationHelper
   def new
   end
 
@@ -14,7 +15,9 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    current_user = nil
+  def delete
+    sign_out
+    flash[:succes] = "Succesfuly log out!"
+    redirect_to signin_path
   end
 end
