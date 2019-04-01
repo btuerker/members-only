@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     if @post.save
       flash[:succes] = "Post succesfully created!"
-      redirect_to posts_path
+      redirect_to @post
     else
       flash.now[:danger] = "There was some problems occured"
       render 'new'
