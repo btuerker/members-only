@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#delete'
   resources :sessions
-  resources :posts, only: [:new, :create, :index]
+  resources :posts, only: [:new, :show, :create, :index]
 end
